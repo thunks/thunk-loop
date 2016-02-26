@@ -1,0 +1,39 @@
+{
+  "name": "thunk-loop",
+  "version": "0.1.0",
+  "description": "Asynchronous tasks loop.",
+  "authors": [
+    "Yan Qing <admin@zensh.com>"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && mocha -t 10000 -r thunk-mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thunks/thunk-loop.git"
+  },
+  "keywords": [
+    "loop",
+    "infinite",
+    "thunk",
+    "task"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thunks/thunk-loop/issues"
+  },
+  "homepage": "https://github.com/thunks/thunk-loop",
+  "dependencies": {
+    "thunks": ">=4.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "standard": "^6.0.7",
+    "thunk-mocha": "^1.0.3"
+  },
+  "files": [
+    "README.md",
+    "index.js"
+  ]
+}
