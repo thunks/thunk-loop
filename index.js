@@ -11,10 +11,15 @@ module.exports = thunkLoop.loop = thunkLoop
 
 function thunkLoop (iter, errorHandle) {
   errorHandle = errorHandle || nOop
-  let handle = (err, res) => err == null ? res : thunk(errorHandle(err))
+
   return thunk(function *() {
     while (true) {
-      let res = yield thunk(iter())(handle)
+      let res = null
+      try {
+        res = yield iter()
+      } catch (e) {
+        res = yield errorHandle(e)
+      }
       if (res !== true) return res
     }
   })

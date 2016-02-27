@@ -1,7 +1,7 @@
 {
   "name": "thunk-loop",
-  "version": "0.1.0",
-  "description": "Asynchronous tasks loop.",
+  "version": "1.0.0",
+  "description": "Asynchronous tasks loop (while (true) { ... }).",
   "authors": [
     "Yan Qing <admin@zensh.com>"
   ],
@@ -19,6 +19,9 @@
     "thunk",
     "task"
   ],
+  "engines": {
+    "node": ">= 4.0"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/thunks/thunk-loop/issues"
