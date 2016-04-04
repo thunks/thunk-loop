@@ -1,13 +1,13 @@
 {
   "name": "thunk-loop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Asynchronous tasks loop (while (true) { ... }).",
   "authors": [
     "Yan Qing <admin@zensh.com>"
   ],
   "main": "index.js",
   "scripts": {
-    "test": "standard && mocha -t 10000 -r thunk-mocha test/index.js"
+    "test": "standard && tman"
   },
   "repository": {
     "type": "git",
@@ -31,9 +31,8 @@
     "thunks": ">=4.1.0"
   },
   "devDependencies": {
-    "mocha": "^2.4.5",
-    "standard": "^6.0.7",
-    "thunk-mocha": "^1.0.3"
+    "standard": "^6.0.8",
+    "tman": "^0.5.2"
   },
   "files": [
     "README.md",

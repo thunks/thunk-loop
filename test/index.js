@@ -9,6 +9,8 @@ const thunk = require('thunks')()
 const Loop = require('..')
 
 describe('thunk-loop', function () {
+  this.timeout(5000)
+
   it('sync loop', function *() {
     let i = 1000
     let res = yield Loop(function () {
