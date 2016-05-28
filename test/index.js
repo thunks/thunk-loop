@@ -2,16 +2,16 @@
 // **Github:** https://github.com/thunks/thunk-loop
 //
 // **License:** MIT
-/* global describe, it */
 
+const tman = require('tman')
 const assert = require('assert')
 const thunk = require('thunks')()
 const Loop = require('..')
 
-describe('thunk-loop', function () {
+tman.suite('thunk-loop', function () {
   this.timeout(5000)
 
-  it('sync loop', function *() {
+  tman.it('sync loop', function * () {
     let i = 1000
     let res = yield Loop(function () {
       if (--i) return true
@@ -21,7 +21,7 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'OK')
   })
 
-  it('async loop with promise', function *() {
+  tman.it('async loop with promise', function * () {
     let i = 1000
     let res = yield Loop(function () {
       return new Promise((resolve, reject) => {
@@ -33,7 +33,7 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'OK')
   })
 
-  it('async loop with thunk function', function *() {
+  tman.it('async loop with thunk function', function * () {
     let i = 1000
     let res = yield Loop(function () {
       return (done) => {
@@ -45,9 +45,9 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'OK')
   })
 
-  it('async loop with generator function', function *() {
+  tman.it('async loop with generator function', function * () {
     let i = 1000
-    let res = yield Loop(function *() {
+    let res = yield Loop(function * () {
       yield thunk.delay(1)
       if (--i) return true
       return 'OK'
@@ -56,11 +56,11 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'OK')
   })
 
-  it('should throw error if no errorHandel', function *() {
+  tman.it('should throw error if no errorHandel', function * () {
     let i = 1000
     let res = ''
     try {
-      res = yield Loop(function *() {
+      res = yield Loop(function * () {
         yield thunk.delay(1)
         if (--i) throw new Error('test')
         return 'OK'
@@ -74,7 +74,7 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'ERR')
   })
 
-  it('should continue if sync error and errorHandel return true', function *() {
+  tman.it('should continue if sync error and errorHandel return true', function * () {
     let i = 1000
     let res = yield Loop(function () {
       if (--i) throw new Error('test')
@@ -87,9 +87,9 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'OK')
   })
 
-  it('should continue if error and errorHandel return true', function *() {
+  tman.it('should continue if error and errorHandel return true', function * () {
     let i = 1000
-    let res = yield Loop(function *() {
+    let res = yield Loop(function * () {
       yield thunk.delay(1)
       if (--i) throw new Error('test')
       return 'OK'
@@ -101,9 +101,9 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'OK')
   })
 
-  it('should return errorHandel\' result if error', function *() {
+  tman.it('should return errorHandel\' result if error', function * () {
     let i = 1000
-    let res = yield Loop(function *() {
+    let res = yield Loop(function * () {
       yield thunk.delay(1)
       if (--i) throw new Error('test')
       return 'OK'
@@ -115,7 +115,7 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'ERR')
   })
 
-  it('should catch errorHandel\' error', function *() {
+  tman.it('should catch errorHandel\' error', function * () {
     let i = 1000
     let res = yield Loop(function () {
       if (--i) throw new Error('test')
@@ -130,13 +130,13 @@ describe('thunk-loop', function () {
     assert.strictEqual(res, 'errorHandel')
   })
 
-  it('errorHandel support async...', function *() {
+  tman.it('errorHandel support async...', function * () {
     let i = 1000
-    let res = yield Loop(function *() {
+    let res = yield Loop(function * () {
       yield thunk.delay(1)
       if (--i) throw new Error('test')
       return 'OK'
-    }, function *(err) {
+    }, function * (err) {
       yield thunk.delay(1)
       assert.strictEqual(err.message, 'test')
       return 'ERR'

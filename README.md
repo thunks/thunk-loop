@@ -4,6 +4,7 @@ Asynchronous tasks loop (while (true) { ... }).
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
+[![Downloads][downloads-image]][downloads-url]
 
 ## [thunks](https://github.com/thunks/thunks)
 
@@ -114,3 +115,6 @@ return thunk function. You should run the thunk function because of thunk's lazy
 
 [travis-url]: https://travis-ci.org/thunks/thunk-loop
 [travis-image]: http://img.shields.io/travis/thunks/thunk-loop.svg
+
+[downloads-url]: https://npmjs.org/package/thunk-loop
+[downloads-image]: http://img.shields.io/npm/dm/thunk-loop.svg?style=flat-square

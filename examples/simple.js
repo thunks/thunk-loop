@@ -4,7 +4,7 @@ const thunk = require('thunks')()
 const thunkLoop = require('..')
 
 var count = 10
-thunkLoop(function *() {
+thunkLoop(function * () {
   yield thunk.delay(1000)
   if (!--count) throw new Error('End!')
   console.log(': ' + count)

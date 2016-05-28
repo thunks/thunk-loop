@@ -12,7 +12,7 @@ module.exports = thunkLoop.loop = thunkLoop
 function thunkLoop (iter, errorHandle) {
   errorHandle = errorHandle || nOop
 
-  return thunk(function *() {
+  return thunk(function * () {
     while (true) {
       let res = null
       try {
