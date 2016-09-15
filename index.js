@@ -17,14 +17,12 @@ function thunkLoop (iter, errorHandle) {
       let res = null
       try {
         res = yield iter()
-      } catch (e) {
-        res = yield errorHandle(e)
+      } catch (err) {
+        res = yield errorHandle(err)
       }
       if (res !== true) return res
     }
   })
 }
 
-function nOop (err) {
-  throw err
-}
+function nOop (err) { throw err }
