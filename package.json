@@ -1,6 +1,6 @@
 {
   "name": "thunk-loop",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Asynchronous tasks loop (while (true) { ... }).",
   "authors": [
     "Yan Qing <admin@zensh.com>"
@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/thunks/thunk-loop",
   "dependencies": {
-    "thunks": ">=4.7.1"
+    "thunks": ">=4.7.5"
   },
   "devDependencies": {
-    "standard": "^8.0.0",
-    "tman": "^1.4.5"
+    "standard": "^8.3.0",
+    "tman": "^1.6.0"
   },
   "files": [
     "README.md",
