@@ -1,3 +1,5 @@
+'use strict'
+
 const thunkLoop = require('..')
 
 var i = 1000

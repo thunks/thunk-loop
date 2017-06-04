@@ -1,4 +1,5 @@
 'use strict'
+
 const thunk = require('thunks')()
 const thunkLoop = require('..')
 
